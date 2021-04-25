@@ -18,7 +18,7 @@ entities:
   - work_type
 
 responses:
-  utter_ask_work_info:
+  utter_ask_work_type:
   - text: What king of work are you looking for?
 
   utter_ask_place:
