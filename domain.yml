@@ -19,7 +19,7 @@ entities:
 
 responses:
   utter_ask_work_type:
-  - text: What king of work are you looking for?
+  - text: What kind of work are you looking for?
 
   utter_ask_place:
   - text: Where do you want to work?
