@@ -20,10 +20,6 @@ nlu:
     - [work_type](work_type)
     - Im looking for a [work_type](work_type)
 
-- intent: inform_work_type_and_plance
-  examples: |
-    - Im looking for a [work_type](work_type) in [place](place)
-
 
 - intent: greet
   examples: |
