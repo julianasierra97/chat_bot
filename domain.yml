@@ -1,0 +1,66 @@
+version: "2.0"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - inform_place
+  - inform_work_type
+  - work
+
+entities:
+  - group
+  - place
+  - work_type
+
+responses:
+  utter_ask_work_info:
+  - text: What king of work are you looking for?
+
+  utter_ask_place:
+  - text: Where do you want to work?
+
+  utter_anwsered:
+  - text: Do you want a {work_type} in {place}?
+
+  utter_greet:
+  - text: "Hey! What are you looking for?"
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+forms:
+  work_form:
+    place:
+      - type: from_text
+    work_type:
+      - type: from_text
+
+slots:
+  place:
+    type: text
+    influence_conversation: false
+  work_type:
+    type: text
+    influence_conversation: false
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
