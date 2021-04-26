@@ -1,0 +1,7 @@
+
+# Virtual environment 
+venv_chatbot/*
+venv/*
+
+# Output models (They may lead to conflicts)
+models/*
