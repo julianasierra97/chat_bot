@@ -23,24 +23,35 @@ class ActionHelloWorld(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-    	    contract_type = {'CDI': 'permanent', 'Temps plein': 'fulltime', 'CDD': 'contract', 'Intérim': 'temporary',
-                     'parttime': 'Temps partiel',
-                     'stage': 'internship', 'Apprentissage': 'apprenticeship', 'Contrat pro': 'custom_1',
-                     'Freelance': 'subcontract'}
-	    remote_type = {'télétravail': '032b3046-06a3-4876-8dfd-474eb5e7ed11',
-	                   'télétravail pendat la crise COVID-19': '7e3167e4-ccb4-49cb-b761-9bae564a0a63'}
+    	    contract_type_french = {'CDI': 'permanent', 'Temps plen': 'fulltime', 'CDD': 'contract', 'Intérim': 'temporary',
+                 'parttime': 'Temps partiel',
+                 'stage': 'internship', 'Apprentissage': 'apprenticeship', 'Contrat pro': 'custom_1',
+                 'Freelance': 'subcontract'}
+			remote_type = {'remote': '032b3046-06a3-4876-8dfd-474eb5e7ed11',
+						'remote while COVID-19': '7e3167e4-ccb4-49cb-b761-9bae564a0a63'}
 
-	    place = 'Paris'
-	    job = 'developper'
-	    contract = 'CDI'
-	    remote = 'télétravail'
-	    BASE_URL = 'https://fr.indeed.com'
-	    path = '/emplois?'
-	    params = (('q', job), ('l', place), ('jt', contract_type[contract]), ('remotejob', remote_type[remote]))
-	    url = BASE_URL + path + urlencode(params)
+			place = 'New York'
+			job = 'data scientist'
+			contract = 'fulltime'
+			remote = 'remote while COVID-19'
+			BASE_URL = 'https://www.indeed.com'
+			path = '/jobs?'
+			params = (('q', job), ('l', place), ('jt', contract), ('remotejob', remote_type[remote]))
+			url = BASE_URL + path + urlencode(params)
+			print(url)
 
-	    print(url)
-	    page = requests.get(url)
+			headers = {
+						'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.84 Safari/537.36',
+						'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,/;q=0.8',
+						'Connection': 'keep-alive',
+						'Upgrade-Insecure-Requests': '1',
+						'Cache-Control': 'max-age=0',
+						'TE': 'Trailers',
+						'If-Modified-Since': 'Sat, 03 Apr 2021 18:56:51 GMT',
+						'If-None-Match': "6068ba73-6314"
+					}
+
+	    page = requests.get(url, headers=headers)
 
 	    soup = BeautifulSoup(page.content, 'html.parser')
 	    links = soup.find_all(class_ = 'jobsearch-SerpJobCard')
