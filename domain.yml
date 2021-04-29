@@ -13,9 +13,9 @@ intents:
   - work
 
 entities:
-  - group
   - place
   - work_type
+  - contract_type
 
 responses:
   utter_ask_work_type:
@@ -24,8 +24,14 @@ responses:
   utter_ask_place:
   - text: Where do you want to work?
 
+  utter_ask_contract_type:
+  - text: What kind of contract do you want?
+
+  utter_ask_remote:
+  - text: Remote or not?
+
   utter_anwsered:
-  - text: Do you want a {work_type} in {place}?
+  - text: Do you want a {work_type} as an {contract_type} in {place}?
 
   utter_greet:
   - text: "Hey! What are you looking for?"
@@ -52,12 +58,21 @@ forms:
       - type: from_text
     work_type:
       - type: from_text
-
+    contract_type:
+      - type: from_text
+    remote:
+      - type: from_text
 slots:
   place:
     type: text
     influence_conversation: false
   work_type:
+    type: text
+    influence_conversation: false
+  contract_type:
+    type: text
+    influence_conversation: false
+  remote:
     type: text
     influence_conversation: false
 

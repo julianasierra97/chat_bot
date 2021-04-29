@@ -13,20 +13,28 @@ nlu:
 
 - intent: inform_place
   examples: |
-    - Im at [place](place)
-    - [place](place)
-    - Im looking for a work in [place](place)
-    - Im looking for a job in [place](place)
-    - in [place](place)
-    - [place](place)
-    - I want to work in [place](place)
+    - Im at [bogota](place)
+    - [bogota](place)
+    - Im looking for a work in [bogota](place)
+    - Im looking for a job in [bogota](place)
+    - in [bogota](place)
+    - [bogota](place)
+    - I want to work in [bogota](place)
 
 - intent: inform_work_type
   examples: |
-    - Im looking for a [work_type](work_type)
-    - An [work_type](work_type)
-    - A [work_type](work_type)
-    - [work_type](work_type)
+    - Im looking for a [stage](work_type)
+    - An [stage](work_type)
+    - A [stage](work_type)
+    - [stage](work_type)
+
+- intent: inform_contract_type
+  examples: |
+    - [contract](contract)
+
+- intent: inform_remote
+  examples: |
+    - [remote](remote)
 
 
 - intent: greet
