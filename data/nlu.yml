@@ -130,6 +130,10 @@ nlu:
 - intent: greet
   examples: |
     - hey
+    - che
+    - holi
+    - que mas pez?
+    - todo bn?
     - hello
     - hi
     - hello there
@@ -192,6 +196,7 @@ nlu:
     - so so perfect
     - so good
     - so perfect
+    - melo caramelo
 
 - intent: mood_unhappy
   examples: |
@@ -209,6 +214,7 @@ nlu:
     - extremly sad
     - so saad
     - so sad
+    - horrible
 
 - intent: bot_challenge
   examples: |
