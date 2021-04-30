@@ -10,7 +10,8 @@ intents:
   - work
   - inform_place:
       use_entities: [place]
-#  - inform_work_type
+  - inform_work_type:
+      use_entities: [work_type]
   - bot_challenge
 
 entities:
@@ -29,8 +30,11 @@ responses:
     - text: "That place is not in the database, hence it doesn't exists."
   
   utter_ask_work_type:
-  - text: What kind of work are you looking for?
+  - text: What type of work are you looking for?
 
+  utter_wrong_work_type:
+    - text: "Ups, it seems that is not a valid work type."
+  
   utter_ask_contract_type:
   - text: What kind of contract do you want?
 
@@ -39,8 +43,7 @@ responses:
 
   utter_answered:
   #- text: Do you want a {work_type} as an {contract_type} in {place}?
-  - text: Do you want a job in {place}?
-
+  - text: Do you want a/an {work_type} in {place}?
 
   # utter_cheer_up:
   # - text: "Here is something to cheer you up:"
@@ -63,8 +66,9 @@ forms:
     place:
       - type: from_entity
         entity: place
-    # work_type:
-    #   - type: from_text
+    work_type:
+      - type: from_entity
+        entity: work_type
     # contract_type:
     #   - type: from_text
     # remote:
@@ -74,9 +78,9 @@ slots:
   place:
     type: text
     influence_conversation: false
-  # work_type:
-  #   type: text
-  #   influence_conversation: false
+  work_type:
+    type: text
+    influence_conversation: false
   # contract_type:
   #   type: text
   #   influence_conversation: false

@@ -109,10 +109,10 @@ nlu:
 
 - intent: inform_work_type
   examples: |
-    - Im looking for a [full-time job](work_type)
+    - Im looking for a [fulltime] job(work_type)
     - Im looking for an [internship](work_type)
     - An [internship](work_type)
-    - A [part time](work_type)
+    - A [parttime](work_type)
     - a [full-time](work_type) job
     - A [full time](work_type) job
     - [full-time](work_type)
@@ -121,8 +121,11 @@ nlu:
     - a [permanent](work_type) job
     - [permanent](work_type)
     - A [internship](work_type)
-    - [internship](work_type)
+    - [Internship](work_type)
     - i want an [internship](work_type)
+    - I want an [internship](work_type)
+    - I am looking for a [fulltime] job(work_type)
+    - i am looking for an [internship] job(work_type)
 
 - intent: inform_contract_type
   examples: |

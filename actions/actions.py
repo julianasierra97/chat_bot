@@ -111,19 +111,6 @@ class ValidateWorkForm(FormValidationAction):
     def place_db() -> List[Text]:
         """Database of supported cuisines."""
         return open('cityDb.txt', 'r').read().splitlines()
-        
-
-    # @staticmethod
-    # def is_int(string: Text) -> bool:
-    #     """Check if a string is an integer."""
-
-    #     try:
-    #         int(string)
-    #         return True
-    #     except ValueError:
-    #         return False
-
-
 
     def validate_place(
         self,
@@ -143,7 +130,33 @@ class ValidateWorkForm(FormValidationAction):
             # user will be asked for the slot again
             return {"place": None}
 
+    @staticmethod
+    def work_type_db() -> List[Text]:
+        """Database of supported work_types."""
+        return [
+            "internship",
+            "fulltime",
+            "parttime",
+            "temporary",
+        ]
 
+    def validate_work_type(
+        self,
+        value: Text,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> Dict[Text, Any]:
+        """Validate work_type value."""
+
+        if value.lower() in self.work_type_db():
+            # validation succeeded, set the value of the "work_type" slot to value
+            return {"work_type": value}
+        else:
+            dispatcher.utter_message(response="utter_wrong_work_type")
+            # validation failed, set this slot to None, meaning the
+            # user will be asked for the slot again
+            return {"work_type": None}
 
     # def validate_num_people(
     #     self,
