@@ -50,6 +50,7 @@ nlu:
     - i want an [internship](work_type)
     - i want an [internship](work_type) in [nice](place)
     - I want an [internship](work_type) in [Paris](place)
+    - a [internship](paris) in [paris](place)
 
 
 
@@ -88,28 +89,6 @@ nlu:
     - [Russia](place)
     - [Moscow](place)
     - [Nice](place)
-# - Im looking for a work in [Italy]{"entity":"place","value":"Italy"}
-    # - Im looking for a job in [Paris]{"entity":"place","value":"Paris"}
-    # - Im searching a job in [london]{"entity":"place","value":"london"}
-    # - Im looking for a job in [Berlin]{"entity":"place","value":"Berlin"}
-    # - I want to work in [sweeden]{"entity":"place","value":"sweeden"}
-    # - In [rome]{"entity":"place","value":"rome"}
-    # - In [cuba]{"entity":"place","value":"cuba"}
-    # - In [lyon]{"entity":"place","value":"lyon"}
-    # - In [marseille]{"entity":"place","value":"marseille"}
-    # - In [India]{"entity":"place","value":"India"}
-    # - In [china]{"entity":"place","value":"china"}
-    # - In [france]{"entity":"place","value":"france"}
-    # - in [Morocco]{"entity":"place","value":"Morocco"}
-    # - In [Madrid]{"entity":"place","value":"Madrid"}
-    # - in [rome]{"entity":"place","value":"rome"}
-    # - in [france]{"entity":"place","value":"france"}
-    # - In [China]{"entity":"place","value":"China"}
-    # - in [colombia]{"entity":"place","value":"colombia"}
-    # - [spain]{"entity":"place","value":"spain"}
-    # - [Russia]{"entity":"place","value":"Russia"}
-    # - [Moscow]{"entity":"place","value":"Moscow"}
-    # - [Nice]{"entity":"place","value":"Nice"}
 
 - intent: inform_work_type
   examples: |
@@ -130,12 +109,23 @@ nlu:
     - I want an [internship](work_type)
     - I am looking for a [fulltime](work_type) job
     - i am looking for an [internship](work_type) job
-    - i want an [internship](work_type) in [Lyon](place)
-    - I want a [fulltime](work_type) job in [rennes](place)
+    - i want an [internship](work_type)
+    - I want a [fulltime](work_type) job 
 
-- intent: inform_contract_type
+- intent: inform_domain
   examples: |
-    - [contract](contract)
+    - I want to work in the [data science](domain) domain
+    - I want to work in the [telecomunications](domain) area
+    - In the [electronics](domain) area
+    - In the [robotics](domain) domain
+    - in the [web developping](domain) area
+    - I want a job as [developper](domain)
+    - i want to work as a [programmer](domain)
+    - [robotics](domain)
+    - [data science](domain)
+    - In [natural language processing](domain)
+    - [machine learning](domain)
+    - [domain](domain)
 
 - intent: inform_remote
   examples: |
