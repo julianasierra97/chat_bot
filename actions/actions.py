@@ -120,7 +120,6 @@ class ValidateWorkForm(FormValidationAction):
         domain: Dict[Text, Any],
     ) -> Dict[Text, Any]:
         """Validate place value."""
-        print("holi")
         if value.lower() in self.place_db():
             # validation succeeded, set the value of the "place" slot to value
             return {"place": value}
