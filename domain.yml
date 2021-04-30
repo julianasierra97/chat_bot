@@ -63,8 +63,8 @@ forms:
     place:
       - type: from_entity
         entity: place
-    work_type:
-      - type: from_text
+    # work_type:
+    #   - type: from_text
     # contract_type:
     #   - type: from_text
     # remote:
