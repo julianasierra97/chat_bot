@@ -127,11 +127,6 @@ nlu:
     - [machine learning](domain)
     - [domain](domain)
 
-- intent: inform_remote
-  examples: |
-    - [remote](remote)
-
-
 - intent: greet
   examples: |
     - hey

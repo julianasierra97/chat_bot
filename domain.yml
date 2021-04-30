@@ -5,13 +5,9 @@ intents:
   - goodbye
   - affirm
   - deny
-#  - mood_great
-#  - mood_unhappy
   - work
   - inform_place
-      #use_entities: [place]
   - inform_work_type
-      # use_entities: [work_type]
   - inform_domain
   - bot_challenge
 
@@ -38,13 +34,10 @@ responses:
     - text: "Ups, it seems that is not a valid work type."
 
   utter_ask_domain:
-  - text: What kind of work do you want?
+  - text: In which domain do you want to work?
 
   utter_wrong_domain:
   - text : "Ups, it seems that is not a valid work domain."
-
-  utter_ask_remote:
-  - text: Remote or not?
 
   utter_answered:
   #- text: Do you want a {work_type} as an {contract_type} in {place}?
@@ -74,6 +67,9 @@ forms:
     work_type:
       - type: from_entity
         entity: work_type
+    domain:
+      - type: from_entity
+        entity: domain
 
 slots:
   place:
