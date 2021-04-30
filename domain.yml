@@ -5,12 +5,13 @@ intents:
   - goodbye
   - affirm
   - deny
-  - mood_great
-  - mood_unhappy
-  - bot_challenge
-  - inform_place
-  - inform_work_type
+#  - mood_great
+#  - mood_unhappy
   - work
+  - inform_place:
+      use_entities: [place]
+#  - inform_work_type
+  - bot_challenge
 
 entities:
   - place
@@ -18,11 +19,17 @@ entities:
   - contract_type
 
 responses:
-  utter_ask_work_type:
-  - text: What kind of work are you looking for?
+  utter_greet:
+  - text: "Hey! What are you looking for?"
 
   utter_ask_place:
   - text: Where do you want to work?
+
+  utter_wrong_place:
+    - text: "That place is not in the database, hence it doesn't exists."
+  
+  utter_ask_work_type:
+  - text: What kind of work are you looking for?
 
   utter_ask_contract_type:
   - text: What kind of contract do you want?
@@ -30,21 +37,20 @@ responses:
   utter_ask_remote:
   - text: Remote or not?
 
-  utter_anwsered:
-  - text: Do you want a {work_type} as an {contract_type} in {place}?
+  utter_answered:
+  #- text: Do you want a {work_type} as an {contract_type} in {place}?
+  - text: Do you want a job in {place}?
 
-  utter_greet:
-  - text: "Hey! What are you looking for?"
 
-  utter_cheer_up:
-  - text: "Here is something to cheer you up:"
-    image: "https://i.imgur.com/nGF1K8f.jpg"
+  # utter_cheer_up:
+  # - text: "Here is something to cheer you up:"
+  #   image: "https://i.imgur.com/nGF1K8f.jpg"
 
-  utter_did_that_help:
-  - text: "Did that help you?"
+  # utter_did_that_help:
+  # - text: "Did that help you?"
 
-  utter_happy:
-  - text: "Great, carry on!"
+  # utter_happy:
+  # - text: "Great, carry on!"
 
   utter_goodbye:
   - text: "Bye"
@@ -55,29 +61,32 @@ responses:
 forms:
   work_form:
     place:
-      - type: from_text
+      - type: from_entity
+        entity: place
     work_type:
       - type: from_text
-    contract_type:
-      - type: from_text
-    remote:
-      - type: from_text
+    # contract_type:
+    #   - type: from_text
+    # remote:
+    #   - type: from_text
+
 slots:
   place:
     type: text
     influence_conversation: false
-  work_type:
-    type: text
-    influence_conversation: false
-  contract_type:
-    type: text
-    influence_conversation: false
-  remote:
-    type: text
-    influence_conversation: false
+  # work_type:
+  #   type: text
+  #   influence_conversation: false
+  # contract_type:
+  #   type: text
+  #   influence_conversation: false
+  # remote:
+  #   type: text
+  #   influence_conversation: false
 
 actions:
   - action_retrieve_work_info
+  - validate_work_form
 
 session_config:
   session_expiration_time: 60

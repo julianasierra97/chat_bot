@@ -29,14 +29,42 @@ stories:
 #   - intent: deny
 #   - action: utter_goodbye
 
-- story: greet anwser path 1
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: work
-  - action: work_form
-  - active_loop: work_form
-  - active_loop: null
-  - action: utter_anwsered
-  - intent: affirm
-  - action: action_retrieve_work_info
+# - story: greet anwser path 1
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: work
+#   - action: work_form
+#   - active_loop: work_form
+#   - active_loop: null
+#   - action: utter_anwsered
+#   - intent: affirm
+#   - action: action_retrieve_work_info
+
+
+# - story: greet anwser path 1
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: work
+#   - action: utter_ask_place
+#   - intent: inform_place
+#   - action: utter_anwsered
+#   - action: utter_goodbye
+#   - action: action_restart
+
+  - story: work form filling
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: work
+      - action: work_form
+      - active_loop: work_form
+      # - intent: stop
+      # - action: utter_ask_continue
+      # - intent: affirm
+      # - action: restaurant_form
+      - active_loop: null
+      - action: utter_answered
+      - action: utter_goodbye
+      - action: action_restart

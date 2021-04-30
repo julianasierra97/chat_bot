@@ -2,31 +2,127 @@ version: "2.0"
 
 nlu:
 
+- synonym: fulltime
+  examples: |
+    - full time
+    - full-time
+
+
+- synonym: parttime
+  examples: |
+    - part time
+    - part-time
+
+
 - intent: work
   examples: |
     - Can you help me find a work offer?
     - Work 
     - I'm looking for a job
+    - im looking for a [fulltime](work_type) job
     - Do you have any job ideas?
-    - An internship
+    - An [internship](work_type)
     - A job
+    - I want to find a job
+    - I want a [full-time](work_type) job
+    - i want a [part-time](work_type) job
+    - I want a [temporary](work_type) job
+    - i want a [full time](work_type) job
+    - a [full time](work_type) job
+    - im looking for an [internship](work_type)
+    - a job
+    - work
+    - I would like to find a [fulltime] job(work_type)
+    - I would like to find an [internship](work_type)
+    - Im looking for a [fulltime] job(work_type)
+    - Im looking for an [internship](work_type)
+    - An [internship](work_type)
+    - A [part time](work_type)
+    - a [full-time](work_type) job
+    - A [full time](work_type) job
+    - [full-time](work_type)
+    - [part-time](work_type)
+    - A [temporary](work_type) job
+    - a [permanent](work_type) job
+    - [permanent](work_type)
+    - A [internship](work_type)
+    - [internship](work_type)
+    - i want an [internship](work_type)
 
 - intent: inform_place
   examples: |
     - Im at [bogota](place)
     - [bogota](place)
-    - Im looking for a work in [bogota](place)
-    - Im looking for a job in [bogota](place)
-    - in [bogota](place)
-    - [bogota](place)
-    - I want to work in [bogota](place)
+    - Im looking for a work in [Bordeaux](place)
+    - Im looking for a job in [bordeaux](place)
+    - in [strasbourg](place)
+    - [Strasbourg](place)
+    - I want to work in [Toulouse](place)
+    - Im looking for a work in [Italy](place)
+    - Im looking for a job in [Paris](place)
+    - Im searching a job in [london](place)
+    - Im looking for a job in [Berlin](place)
+    - I want to work in [sweeden](place)
+    - In [rome](place)
+    - In [cuba](place)
+    - in [lyon](place)
+    - In [marseille](place)
+    - In [India](place)
+    - In [china](place)
+    - In [france](place)
+    - in [Morocco](place)
+    - In [Madrid](place)
+    - in [rome](place)
+    - in [france](place)
+    - In [China](place)
+    - in [colombia](place)
+    - in [arras]
+    - in [le cannet]
+    - In [saint-étienne]
+    - in [Ivry-sur-Seine]
+    - [spain](place)
+    - [Russia](place)
+    - [Moscow](place)
+    - [Nice](place)
+# - Im looking for a work in [Italy]{"entity":"place","value":"Italy"}
+    # - Im looking for a job in [Paris]{"entity":"place","value":"Paris"}
+    # - Im searching a job in [london]{"entity":"place","value":"london"}
+    # - Im looking for a job in [Berlin]{"entity":"place","value":"Berlin"}
+    # - I want to work in [sweeden]{"entity":"place","value":"sweeden"}
+    # - In [rome]{"entity":"place","value":"rome"}
+    # - In [cuba]{"entity":"place","value":"cuba"}
+    # - In [lyon]{"entity":"place","value":"lyon"}
+    # - In [marseille]{"entity":"place","value":"marseille"}
+    # - In [India]{"entity":"place","value":"India"}
+    # - In [china]{"entity":"place","value":"china"}
+    # - In [france]{"entity":"place","value":"france"}
+    # - in [Morocco]{"entity":"place","value":"Morocco"}
+    # - In [Madrid]{"entity":"place","value":"Madrid"}
+    # - in [rome]{"entity":"place","value":"rome"}
+    # - in [france]{"entity":"place","value":"france"}
+    # - In [China]{"entity":"place","value":"China"}
+    # - in [colombia]{"entity":"place","value":"colombia"}
+    # - [spain]{"entity":"place","value":"spain"}
+    # - [Russia]{"entity":"place","value":"Russia"}
+    # - [Moscow]{"entity":"place","value":"Moscow"}
+    # - [Nice]{"entity":"place","value":"Nice"}
 
 - intent: inform_work_type
   examples: |
-    - Im looking for a [stage](work_type)
-    - An [stage](work_type)
-    - A [stage](work_type)
-    - [stage](work_type)
+    - Im looking for a [full-time job](work_type)
+    - Im looking for an [internship](work_type)
+    - An [internship](work_type)
+    - A [part time](work_type)
+    - a [full-time](work_type) job
+    - A [full time](work_type) job
+    - [full-time](work_type)
+    - [part-time](work_type)
+    - A [temporary](work_type) job
+    - a [permanent](work_type) job
+    - [permanent](work_type)
+    - A [internship](work_type)
+    - [internship](work_type)
+    - i want an [internship](work_type)
 
 - intent: inform_contract_type
   examples: |
