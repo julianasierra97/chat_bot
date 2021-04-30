@@ -26,8 +26,8 @@ nlu:
     - I want to find a job
     - I want a [full-time](work_type) job
     - i want a [part-time](work_type) job
-    - I want a [temporary](work_type) job
-    - i want a [full time](work_type) job
+    - I want a [temporary](work_type) job in [bogota](place)
+    - i want a [full time](work_type) job in [Buenos Aires](place)
     - a [full time](work_type) job
     - im looking for an [internship](work_type)
     - a job
@@ -48,6 +48,10 @@ nlu:
     - A [internship](work_type)
     - [internship](work_type)
     - i want an [internship](work_type)
+    - i want an [internship](work_type) in [nice](place)
+    - I want an [internship](work_type) in [Paris](place)
+
+
 
 - intent: inform_place
   examples: |
@@ -124,8 +128,10 @@ nlu:
     - [Internship](work_type)
     - i want an [internship](work_type)
     - I want an [internship](work_type)
-    - I am looking for a [fulltime] job(work_type)
-    - i am looking for an [internship] job(work_type)
+    - I am looking for a [fulltime](work_type) job
+    - i am looking for an [internship](work_type) job
+    - i want an [internship](work_type) in [Lyon](place)
+    - I want a [fulltime](work_type) job in [rennes](place)
 
 - intent: inform_contract_type
   examples: |

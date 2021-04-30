@@ -8,10 +8,10 @@ intents:
 #  - mood_great
 #  - mood_unhappy
   - work
-  - inform_place:
-      use_entities: [place]
-  - inform_work_type:
-      use_entities: [work_type]
+  - inform_place
+      #use_entities: [place]
+  - inform_work_type
+      # use_entities: [work_type]
   - bot_challenge
 
 entities:
