@@ -50,8 +50,15 @@ nlu:
     - i want an [internship](work_type)
     - i want an [internship](work_type) in [nice](place)
     - I want an [internship](work_type) in [Paris](place)
-    - a [internship](paris) in [paris](place)
-
+    - a [internship](domain) in [paris](place)
+    - an [internship](domain)
+    - i would like a job in [Buenos Aires](place)
+    - I would like a job in [jamaica](place)
+    - I'd like to work in [St. Malo](place)
+    - i'd like a job in [Morlaix](place)
+    - i would like a job in [Buenos Aires](place)
+    - I would like a [fulltime](work_type) job in [jamaica](place)
+    - i'd like an [internship](work_type) in [Morlaix](place)
 
 
 - intent: inform_place
@@ -94,6 +101,12 @@ nlu:
     - [Russia](place)
     - [Moscow](place)
     - [Nice](place)
+    - I would like to work in [washington](place)
+    - i would like to work in [ohio](place)
+    - i would like a job in [Buenos Aires](place)
+    - I would like a job in [jamaica](place)
+    - I'd like to work in [St. Malo](place)
+    - i'd like a job in [Morlaix](place)
 
 - intent: inform_work_type
   examples: |
@@ -184,6 +197,15 @@ nlu:
     - don't like that
     - no way
     - not really
+
+
+- intent: inform_please_repeat_question
+  examples: |
+    - Can you repeat?
+    - Please repeat your question
+    - What?
+    - can you repeat
+    - repeat
 
 - intent: mood_great
   examples: |

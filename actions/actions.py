@@ -15,7 +15,7 @@ from rasa_sdk.forms import FormValidationAction
 
 import requests
 import json
-from bs4 import BeautifulSoup
+#from bs4 import BeautifulSoup
 from urllib.parse import urlencode
 
 import time
@@ -189,3 +189,35 @@ class ValidateWorkForm(FormValidationAction):
             # user will be asked for the slot again
             return {"domain": None}
 
+
+class ActionRepeat(Action): 
+    def name(self) -> Text:
+        return "action_repeat"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        user_ignore_count = 2
+        count = 0
+        tracker_list = []
+
+        while user_ignore_count > 0:
+            event = tracker.events[count].get('event')
+            if event == 'user':
+                user_ignore_count = user_ignore_count - 1
+            if event == 'bot':
+                tracker_list.append(tracker.events[count])
+            count = count - 1
+
+        i = len(tracker_list) - 1
+        while i >= 0:
+            data = tracker_list[i].get('data')
+            if data:
+                if "buttons" in data:
+                    dispatcher.utter_message(text=tracker_list[i].get('text'), buttons=data["buttons"])
+                else:
+                    dispatcher.utter_message(text=tracker_list[i].get('text'))
+            i -= 1
+
+        return []

@@ -10,6 +10,7 @@ intents:
   - inform_work_type
   - inform_domain
   - bot_challenge
+  - inform_please_repeat_question
 
 entities:
   - place
@@ -40,7 +41,10 @@ responses:
 
   utter_answered:
   #- text: Do you want a {work_type} as an {contract_type} in {place}?
-  - text: Do you want a/an {work_type} in {place}?
+  - text: "Do you want a/an {work_type} in {place}?"
+
+  utter_please_rephrase:
+  - text: "I'm sorry, I didn't understand that. Could you rephrase?"
 
   # utter_cheer_up:
   # - text: "Here is something to cheer you up:"
@@ -84,6 +88,7 @@ slots:
 actions:
   - action_retrieve_work_info
   - validate_work_form
+  - action_repeat
 
 session_config:
   session_expiration_time: 60

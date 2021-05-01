@@ -53,18 +53,25 @@ stories:
 #   - action: utter_goodbye
 #   - action: action_restart
 
-  - story: work form filling
+  - story: greet and work form filling
     steps:
       - intent: greet
       - action: utter_greet
       - intent: work
       - action: work_form
       - active_loop: work_form
-      # - intent: stop
-      # - action: utter_ask_continue
-      # - intent: affirm
-      # - action: restaurant_form
       - active_loop: null
-      - action: action_retrieve_work_info
+      #- action: action_retrieve_work_info
+      - action: utter_goodbye
+      - action: action_restart
+
+
+  - story: work form filling no greet
+    steps:
+      - intent: work
+      - action: work_form
+      - active_loop: work_form
+      - active_loop: null
+      #- action: action_retrieve_work_info
       - action: utter_goodbye
       - action: action_restart
