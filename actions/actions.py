@@ -53,9 +53,9 @@ class ActionHelloWorld(Action):
                 "remote": "032b3046-06a3-4876-8dfd-474eb5e7ed11",
                 "remote while COVID-19": "7e3167e4-ccb4-49cb-b761-9bae564a0a63",
             }
-            job = tracker.slots.get("work_type")
+            job = tracker.slots.get("domain")
             place = tracker.slots.get("place")
-            contract = "fulltime"
+            contract = tracker.slots.get("work_type")
             remote = "remote while COVID-19"
             BASE_URL = "https://www.indeed.com"
             path = "/jobs?"
@@ -100,7 +100,6 @@ class ActionHelloWorld(Action):
         return []
 
 
-
 class ValidateWorkForm(FormValidationAction):
     """Example of a form validation action."""
 
@@ -110,7 +109,7 @@ class ValidateWorkForm(FormValidationAction):
     @staticmethod
     def place_db() -> List[Text]:
         """Database of supported cuisines."""
-        return open('cityDb.txt', 'r').read().splitlines()
+        return open("cityDb.txt", "r").read().splitlines()
 
     def validate_place(
         self,
@@ -139,8 +138,7 @@ class ValidateWorkForm(FormValidationAction):
             "temporary",
             "permanent",
             "apprenticeship",
-            "subcontract"
-
+            "subcontract",
         ]
 
     def validate_work_type(
@@ -165,7 +163,7 @@ class ValidateWorkForm(FormValidationAction):
     def domain_db() -> List[Text]:
         """Database of supported work_types."""
         return [
-            "developper",
+            "developer",
             "data science",
             "front end",
             "full stack",
@@ -190,7 +188,7 @@ class ValidateWorkForm(FormValidationAction):
             return {"domain": None}
 
 
-class ActionRepeat(Action): 
+class ActionRepeat(Action):
     def name(self) -> Text:
         return "action_repeat"
 
