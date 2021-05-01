@@ -11,6 +11,8 @@ intents:
   - inform_domain
   - bot_challenge
   - inform_please_repeat_question
+  - mood_great
+  - mood_unhappy
 
 entities:
   - place
@@ -18,8 +20,17 @@ entities:
   - domain
 
 responses:
+
   utter_greet:
-  - text: "Hey! What are you looking for?"
+  - text: "Hey! How are you?"
+    buttons:
+    - title: "great"
+      payload: "/mood_great"
+    - title: "super sad"
+      payload: "/mood_unhappy"
+
+  # utter_greet:
+  # - text: "Hey! What are you looking for?"
 
   utter_ask_place:
   - text: Where do you want to work?
@@ -46,15 +57,15 @@ responses:
   utter_please_rephrase:
   - text: "I'm sorry, I didn't understand that. Could you rephrase?"
 
-  # utter_cheer_up:
-  # - text: "Here is something to cheer you up:"
-  #   image: "https://i.imgur.com/nGF1K8f.jpg"
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
 
-  # utter_did_that_help:
-  # - text: "Did that help you?"
+  utter_did_that_help:
+  - text: "Did that help you?"
 
-  # utter_happy:
-  # - text: "Great, carry on!"
+  utter_happy:
+  - text: "Great, carry on! What are you looking for?"
 
   utter_goodbye:
   - text: "Bye"
