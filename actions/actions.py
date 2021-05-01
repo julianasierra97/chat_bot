@@ -15,7 +15,7 @@ from rasa_sdk.forms import FormValidationAction
 
 import requests
 import json
-#from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup
 from urllib.parse import urlencode
 
 import time

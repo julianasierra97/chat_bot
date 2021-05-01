@@ -26,7 +26,7 @@ rules:
   steps:
     - action: work_form
     - active_loop: null
-    - action: utter_answered
+    - action: action_retrieve_work_info
     - action: utter_goodbye
     - action: action_restart
 

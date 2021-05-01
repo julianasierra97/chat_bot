@@ -81,6 +81,11 @@ nlu:
     - in [france](place)
     - In [China](place)
     - in [colombia](place)
+    - In [New york](place)
+    - in [los angeles](place)
+    - in [San Diego](place)
+    - In [Las vegas](place)
+    - in [st. louis](place)
     - in [arras]
     - in [le cannet]
     - In [saint-étienne]
