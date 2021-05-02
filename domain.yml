@@ -63,10 +63,10 @@ responses:
     - text: "Ups, it seems that is not a valid work type."
 
   utter_ask_domain:
-  - text: In which domain do you want to work?
+  - text: What job are you looking for?
 
   utter_wrong_domain:
-  - text : "Ups, it seems that is not a valid work domain."
+  - text : "Ups it seems that i don't get that job, can you rephrase?"
 
   utter_answered:
   #- text: Do you want a {work_type} as an {contract_type} in {place}?

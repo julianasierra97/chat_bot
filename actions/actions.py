@@ -36,8 +36,7 @@ class ActionHelloWorld(Action):
 
     @staticmethod
     def get_jobs(dispatcher: CollectingDispatcher, tracker: Tracker) -> bool:
-        """Check if a string is an integer."""
-
+        
         try:
             contract_type_french = {
                 "CDI": "permanent",

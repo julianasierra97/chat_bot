@@ -101,6 +101,8 @@ nlu:
     - [Russia](place)
     - [Moscow](place)
     - [Nice](place)
+    - [los Angeles](place)
+    - []
     - I would like to work in [washington](place)
     - i would like to work in [ohio](place)
     - i would like a job in [Buenos Aires](place)
