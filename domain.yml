@@ -33,13 +33,31 @@ responses:
   # - text: "Hey! What are you looking for?"
 
   utter_ask_place:
-  - text: Where do you want to work?
+  - text: In wich city do you want to work?
 
   utter_wrong_place:
-    - text: "That place is not in the database, hence it doesn't exists."
+    - text: "That city is not in the database, hence it doesn't exists for me."
   
   utter_ask_work_type:
-  - text: What type of work are you looking for?
+  - text: What type of employment do you want?
+    buttons:
+    - title: "full-time"
+      payload: /inform_work_type{"work_type":"fulltime"}
+    - title: "permanent"
+      payload: /inform_work_type{"work_type":"permanent"}
+    - title: "internship"
+      payload: /inform_work_type{"work_type":"internship"}
+    - title: "parttime"
+      payload: /inform_work_type{"work_type":"parttime"}
+    - title: "temporary"
+      payload: /inform_work_type{"work_type":"temporary"}
+    - title: "apprenticeship"
+      payload: /inform_work_type{"work_type":"apprenticeship"}
+    - title: "subcontract"
+      payload: /inform_work_type{"work_type":"subcontract"}
+
+
+
 
   utter_wrong_work_type:
     - text: "Ups, it seems that is not a valid work type."
