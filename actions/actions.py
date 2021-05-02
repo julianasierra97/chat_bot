@@ -36,32 +36,16 @@ class ActionHelloWorld(Action):
 
     @staticmethod
     def get_jobs(dispatcher: CollectingDispatcher, tracker: Tracker) -> bool:
-        
+
         try:
-            contract_type_french = {
-                "CDI": "permanent",
-                "Temps plen": "fulltime",
-                "CDD": "contract",
-                "Intérim": "temporary",
-                "parttime": "Temps partiel",
-                "stage": "internship",
-                "Apprentissage": "apprenticeship",
-                "Contrat pro": "custom_1",
-                "Freelance": "subcontract",
-            }
             job = tracker.slots.get("domain")
             place = tracker.slots.get("place")
             contract = tracker.slots.get("work_type")
             remote = "remote while COVID-19"
             BASE_URL = "https://www.indeed.com"
             path = "/jobs?"
-            params = (
-                ("q", job),
-                ("l", place)
-                # ("jt", contract),
-            )
+            params = (("q", job), ("l", place))
             url = BASE_URL + path + urlencode(params)
-            dispatcher.utter_message(url)
             headers = {
                 "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.84 Safari/537.36",
                 "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,/;q=0.8",
@@ -77,7 +61,24 @@ class ActionHelloWorld(Action):
 
             soup = BeautifulSoup(page.content, "html.parser")
             links = soup.find_all(class_="jobsearch-SerpJobCard")
-            return "I found " + str(len(links)) + " jobs for you"
+            jobs = []
+
+            for i, card in enumerate(links):
+                job_title = card.find("a").get("title")
+                jobs.append(job_title + " \n")
+            if (len(links)) > 0:
+                reponse = (
+                    f"That's cool! some jobs like:\n\n"
+                    + f"{''.join(set(jobs))} were found."
+                    + f"Check this link to get one of them! \n"
+                    + f"{url}"
+                )
+            else:
+                reponse = (
+                    "Oops, seems like there are no jobs with those characteristics! "
+                )
+            return reponse
+
         except ValueError:
             return "False"
 
@@ -90,7 +91,6 @@ class ActionHelloWorld(Action):
 
         result = self.get_jobs(dispatcher, tracker)
         dispatcher.utter_message(result)
-        time.sleep(3.0)
 
         return []
 
