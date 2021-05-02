@@ -42,22 +42,20 @@ responses:
   - text: What type of employment do you want?
     buttons:
     - title: "full-time"
-      payload: /inform_work_type{"work_type":"fulltime"}
+      payload: "fulltime"
     - title: "permanent"
-      payload: /inform_work_type{"work_type":"permanent"}
+      payload: "permanent"
     - title: "internship"
-      payload: /inform_work_type{"work_type":"internship"}
+      payload: "internship"
     - title: "parttime"
-      payload: /inform_work_type{"work_type":"parttime"}
+      payload: "parttime"
     - title: "temporary"
-      payload: /inform_work_type{"work_type":"temporary"}
+      payload: "temporary"
     - title: "apprenticeship"
-      payload: /inform_work_type{"work_type":"apprenticeship"}
+      payload: "apprenticeship"
     - title: "subcontract"
-      payload: /inform_work_type{"work_type":"subcontract"}
-
-
-
+      payload: "subcontract"
+  
 
   utter_wrong_work_type:
     - text: "Ups, it seems that is not a valid work type."
