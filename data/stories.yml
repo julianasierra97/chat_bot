@@ -61,7 +61,7 @@ stories:
       - action: work_form
       - active_loop: work_form
       - active_loop: null
-      #- action: action_retrieve_work_info
+      - action: action_retrieve_work_info
       - action: utter_goodbye
       - action: action_restart
 
@@ -72,6 +72,6 @@ stories:
       - action: work_form
       - active_loop: work_form
       - active_loop: null
-      #- action: action_retrieve_work_info
+      - action: action_retrieve_work_info
       - action: utter_goodbye
       - action: action_restart

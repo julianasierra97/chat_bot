@@ -19,7 +19,7 @@ entities:
   - work_type
   - domain
 
-responses:
+responses:  
 
   utter_greet:
   - text: "Hey! How are you?"

@@ -15,7 +15,8 @@ from rasa_sdk.forms import FormValidationAction
 
 import requests
 import json
-#from bs4 import BeautifulSoup
+
+from bs4 import BeautifulSoup
 from urllib.parse import urlencode
 
 import time
@@ -49,10 +50,6 @@ class ActionHelloWorld(Action):
                 "Contrat pro": "custom_1",
                 "Freelance": "subcontract",
             }
-            remote_type = {
-                "remote": "032b3046-06a3-4876-8dfd-474eb5e7ed11",
-                "remote while COVID-19": "7e3167e4-ccb4-49cb-b761-9bae564a0a63",
-            }
             job = tracker.slots.get("domain")
             place = tracker.slots.get("place")
             contract = tracker.slots.get("work_type")
@@ -61,9 +58,8 @@ class ActionHelloWorld(Action):
             path = "/jobs?"
             params = (
                 ("q", job),
-                ("l", place),
-                ("jt", contract),
-                ("remotejob", remote_type[remote]),
+                ("l", place)
+                # ("jt", contract),
             )
             url = BASE_URL + path + urlencode(params)
             dispatcher.utter_message(url)
@@ -78,7 +74,7 @@ class ActionHelloWorld(Action):
                 "If-None-Match": "6068ba73-6314",
             }
 
-            page = requests.get(url, headers=headers)
+            page = requests.get(url, headers=headers, allow_redirects=True)
 
             soup = BeautifulSoup(page.content, "html.parser")
             links = soup.find_all(class_="jobsearch-SerpJobCard")
@@ -161,13 +157,8 @@ class ValidateWorkForm(FormValidationAction):
 
     @staticmethod
     def domain_db() -> List[Text]:
-        """Database of supported work_types."""
-        return [
-            "developer",
-            "data science",
-            "front end",
-            "full stack",
-        ]
+        """Database of supported work domaines"""
+        return open("work_domains.txt", "r").read().splitlines()
 
     def validate_domain(
         self,
@@ -192,30 +183,35 @@ class ActionRepeat(Action):
     def name(self) -> Text:
         return "action_repeat"
 
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+    def run(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> List[Dict[Text, Any]]:
 
         user_ignore_count = 2
         count = 0
         tracker_list = []
 
         while user_ignore_count > 0:
-            event = tracker.events[count].get('event')
-            if event == 'user':
+            event = tracker.events[count].get("event")
+            if event == "user":
                 user_ignore_count = user_ignore_count - 1
-            if event == 'bot':
+            if event == "bot":
                 tracker_list.append(tracker.events[count])
             count = count - 1
 
         i = len(tracker_list) - 1
         while i >= 0:
-            data = tracker_list[i].get('data')
+            data = tracker_list[i].get("data")
             if data:
                 if "buttons" in data:
-                    dispatcher.utter_message(text=tracker_list[i].get('text'), buttons=data["buttons"])
+                    dispatcher.utter_message(
+                        text=tracker_list[i].get("text"), buttons=data["buttons"]
+                    )
                 else:
-                    dispatcher.utter_message(text=tracker_list[i].get('text'))
+                    dispatcher.utter_message(text=tracker_list[i].get("text"))
             i -= 1
 
         return []
