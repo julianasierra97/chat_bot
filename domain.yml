@@ -86,6 +86,9 @@ responses:
   utter_goodbye:
   - text: "Bye"
 
+  utter_get_a_work:
+  - text: "So you are sad and poor, maybe you need a job ;)"
+
   utter_iamabot:
   - text: "I am a bot, powered by Rasa."
 

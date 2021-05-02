@@ -8,6 +8,13 @@ stories:
     - action: utter_greet
     - intent: mood_great
     - action: utter_happy
+    - intent: work
+    - action: work_form
+    - active_loop: work_form
+    - active_loop: null
+    - action: action_retrieve_work_info
+    - action: utter_goodbye
+    - action: action_restart
 
   - story: sad path 1
     steps:
@@ -18,6 +25,13 @@ stories:
     - action: utter_did_that_help
     - intent: affirm
     - action: utter_happy
+    - intent: work
+    - action: work_form
+    - active_loop: work_form
+    - active_loop: null
+    - action: action_retrieve_work_info
+    - action: utter_goodbye
+    - action: action_restart
 
   - story: sad path 2
     steps:
@@ -27,31 +41,14 @@ stories:
     - action: utter_cheer_up
     - action: utter_did_that_help
     - intent: deny
+    - action: utter_get_a_work
+    - action: work_form
+    - active_loop: work_form
+    - active_loop: null
+    - action: action_retrieve_work_info
     - action: utter_goodbye
+    - action: action_restart
 
-  # - story: greet anwser path 1
-  #   steps:
-  #   - intent: greet
-  #   - action: utter_greet
-  #   - intent: work
-  #   - action: work_form
-  #   - active_loop: work_form
-  #   - active_loop: null
-  #   - action: utter_anwsered
-  #   - intent: affirm
-  #   - action: action_retrieve_work_info
-
-
-  # - story: greet anwser path 1
-  #   steps:
-  #   - intent: greet
-  #   - action: utter_greet
-  #   - intent: work
-  #   - action: utter_ask_place
-  #   - intent: inform_place
-  #   - action: utter_anwsered
-  #   - action: utter_goodbye
-  #   - action: action_restart
 
   - story: greet and work form filling
     steps:
