@@ -102,7 +102,9 @@ nlu:
     - [Moscow](place)
     - [Nice](place)
     - [los Angeles](place)
-    - []
+    - [San diego](place)
+    - [las Vegas](place)
+    - [montana](place)
     - I would like to work in [washington](place)
     - i would like to work in [ohio](place)
     - i would like a job in [Buenos Aires](place)
@@ -134,18 +136,20 @@ nlu:
 
 - intent: inform_domain
   examples: |
-    - I want to work in the [data science](domain) domain
-    - I want to work in the [telecomunications](domain) area
-    - In the [electronics](domain) area
-    - In the [robotics](domain) domain
-    - in the [web developping](domain) area
-    - I want a job as [developper](domain)
+    - I would like to work as an [orthodonsist](domain)
+    - i'd like to a [cyber security analyst](domain) job
     - i want to work as a [programmer](domain)
-    - [robotics](domain)
-    - [data science](domain)
+    - [data scientist](domain)
     - In [natural language processing](domain)
     - [machine learning](domain)
     - [domain](domain)
+    - I want to work as a [data scientist](domain)
+    - [sound designer](domain)
+    - a [full-stack developer](domain) job
+    - A [veterinarian](domain) job
+    - [IT consultant](domain)
+    - As an [astronaut](domain)
+    - as a [civil engineer](domain)
 
 - intent: greet
   examples: |
